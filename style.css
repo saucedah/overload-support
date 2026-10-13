@@ -1,0 +1,60 @@
+/* Overload — support and privacy pages. Station look: black floor, chalk text, yellow accent.
+   Dark first; the light theme uses the app's light tokens (floor #E8E8E4, chalk #111113,
+   accent text #735A00 for 4.5:1+ contrast). System fonts only. No external requests. */
+:root {
+  color-scheme: dark light;
+  --floor: #0B0B0C;
+  --slab: #17181B;
+  --chalk: #F4F4F1;
+  --steel: #8E9096;
+  --accent: #FFD60A;
+  --accent-text: #FFD60A;
+  --line: #2A2B30;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --floor: #E8E8E4;
+    --slab: #FFFFFF;
+    --chalk: #111113;
+    --steel: #5F6167;
+    --accent: #F5C400;
+    --accent-text: #735A00;
+    --line: #CFCFCA;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--floor);
+  color: var(--chalk);
+  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.wrap { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+header.site { border-top: 6px solid var(--accent); padding-top: 1.25rem; margin-bottom: 1.5rem; }
+header.site .brand { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: .85rem; color: var(--accent-text); }
+h1 { font-size: 2rem; line-height: 1.15; margin: .35rem 0 .5rem; font-weight: 800; }
+h2 { font-size: 1.2rem; margin: 2.25rem 0 .5rem; font-weight: 800; letter-spacing: .01em; }
+h3 { font-size: 1rem; margin: 1.25rem 0 .25rem; font-weight: 700; }
+p, ul, ol { margin: .6rem 0; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: .25rem 0; }
+a { color: var(--accent-text); text-underline-offset: .15em; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.meta, .note { color: var(--steel); font-size: .9rem; }
+.badge {
+  display: inline-block; margin: .5rem 0; padding: .35rem .8rem;
+  background: var(--accent); color: #111113; font-weight: 800; border-radius: 999px; font-size: .95rem;
+}
+.slab { background: var(--slab); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin: 1rem 0; }
+details { background: var(--slab); border: 1px solid var(--line); border-radius: 14px; padding: .15rem 1.15rem; margin: .6rem 0; }
+summary { cursor: pointer; font-weight: 700; padding: .8rem 0; min-height: 44px; }
+details[open] summary { border-bottom: 1px solid var(--line); margin-bottom: .4rem; }
+table { border-collapse: collapse; width: 100%; margin: .75rem 0; font-size: .95rem; }
+th, td { text-align: left; vertical-align: top; padding: .55rem .6rem; border-bottom: 1px solid var(--line); }
+th { color: var(--steel); font-weight: 700; }
+nav.site { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .95rem; }
+nav.site a { margin-right: 1.25rem; }
+@media (prefers-contrast: more) { :root { --steel: #B4B6BC; } }
+@media (prefers-contrast: more) and (prefers-color-scheme: light) { :root { --steel: #3F4146; --accent-text: #5C4800; } }
+@media print { body { background: #fff; color: #000; } a { color: #000; } }
